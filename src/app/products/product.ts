@@ -4,5 +4,6 @@ export class Product {
     valor: string;
     promocao: boolean;
     valorPromo: string;
-    imagem: string;    
+    imagem: string;
+    ativo: boolean;
 }

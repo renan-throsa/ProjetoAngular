@@ -7,6 +7,16 @@
         </a>
         <h4 class="card-title">{{ produto.nome | titlecase }}</h4>
 
+        <div [ngSwitch]="produto.ativo">
+            <p *ngSwitchCase="true">Em estoque!</p>
+            <p *ngSwitchCase="false">Fora de estoque ;-(</p>
+        </div>
+
+        <div *ngIf="!produto.ativo" class="card-body">
+            <h4>Avise-me quando chegar!</h4>
+            <ng-content></ng-content>
+        </div>
+
         <div [ngSwitch]="produto.promocao">
             <p *ngSwitchCase="true">Promoção!</p>
             <p *ngSwitchCase="false">Por apenas:</p>
@@ -28,9 +38,12 @@
         </div>
 
         <div class="card-footer">
-            <a class="btn btn-primary" [routerLink]="['/carrinho',produto.id]">
-                <span class="fa fa-shopping-cart"></span> Comprar
+            <a ngClass="prduct.ativo? 'btn btn-success:btn btn-danger'" class="btn btn-primary"
+                (click)='emitirEvento()'>
+                <span class="prduct.ativo? 'fa fa-toogle-on':'fa fa-toogle-off'"></span> Status
             </a>
+            &nbsp;
+            <a [routerLink]="['editar/',produto.id]" class="btn btn-primary">Editar</a>
         </div>
     </div>
 </div>

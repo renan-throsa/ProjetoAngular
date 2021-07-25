@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { INavigation } from './Navigation';
 
 @Component({
   selector: 'app-menu',
@@ -6,5 +7,37 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class MenuComponent {
-
+  
+  nav: INavigation[] = [
+    {
+      link: '/home',
+      name: 'Home',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/cadastro',
+      name: 'Cadastro',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/sobre',
+      name: 'Sobre',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/produtos',
+      name: 'Produtos',
+      exact: false,
+      admin: false
+    },
+    {
+      link: '/admin',
+      name: 'Admin',
+      exact: false,
+      admin: false
+    }
+  ];
 }

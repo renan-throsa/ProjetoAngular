@@ -12,7 +12,15 @@ export class ProductsService {
   constructor(private _http: HttpClient) {
   }
 
-  getProducts(): Observable<Product[]> {
-    return this._http.get<Product[]>(this._urlService + 'produtos')
+  getProducts(promo: string = ''): Observable<Product[]> {
+    if (promo === 'ativos') {
+      return this._http.get<Product[]>(this._urlService + 'produtos?ativo=true');
+    }    
+    return this._http.get<Product[]>(this._urlService + 'produtos');
+  }
+
+  getProduct(id: number): Observable<Product> {
+    console.log(this._urlService + 'produtos' + id);
+    return this._http.get<Product>(this._urlService + 'produtos/' + id);
   }
 }
