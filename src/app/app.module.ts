@@ -15,6 +15,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CustomFormsModule } from 'ng2-validation';
+import { AuthGuard } from './services/app.guard';
 
 registerLocaleData(localePt)
 
@@ -36,7 +37,7 @@ registerLocaleData(localePt)
     NgBrazil,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

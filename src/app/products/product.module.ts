@@ -1,4 +1,3 @@
-import { ProductsService } from './products.service';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductsDetailsComponent } from './product-details/product-details.component';
 import { ProductsCountComponent } from './product-details/product-count.component';
@@ -8,7 +7,9 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NewProductComponent } from './new-product/new-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductResolve } from './product.resolve';
+import { ProductResolve } from './services/product.resolve';
+import { ProductsService } from './services/products.service';
+import { ProductAppComponent } from './product.app.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProductResolve } from './product.resolve';
         ProductsDetailsComponent,
         ProductsCountComponent,
         EditProductComponent,
-        NewProductComponent
+        NewProductComponent,
+        ProductAppComponent
     ],
 
     imports: [

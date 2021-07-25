@@ -1,6 +1,5 @@
-import { ProductsService } from './../products.service';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
+import { Product } from '../models/product';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,12 +12,12 @@ export class ProductsListComponent implements OnInit {
 
   produtos: Array<Product>;
 
-  constructor(private _service: ProductsService, private _route: ActivatedRoute) {
+  constructor(private _route: ActivatedRoute) {
     this.produtos = new Array<Product>();
   }
 
   ngOnInit(): void {
-    this._route.data.subscribe((response: any) => {   
+    this._route.data.subscribe((response: any) => {
       this.produtos = response.produtos;
     })
     /*
