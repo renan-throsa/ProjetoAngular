@@ -26,7 +26,7 @@ import { ProductAppComponent } from './product.app.component';
         CommonModule,
         ProductRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule 
     ],
     providers: [
         ProductsService,

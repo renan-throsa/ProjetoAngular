@@ -1,3 +1,4 @@
+import { TodoModule } from './todo/todo.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { AppRoutingModule } from './app.routes';
 import { NgModule } from '@angular/core';
@@ -24,7 +25,7 @@ registerLocaleData(localePt)
     AppComponent,
     AboutComponent,
     ContactComponent,
-    EntryComponent
+    EntryComponent,
   ],
   imports: [
     BrowserModule,

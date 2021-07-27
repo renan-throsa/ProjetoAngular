@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductsService {
 
   protected _urlService: string = 'http://localhost:3000/';

@@ -22,6 +22,10 @@ const rootRoutesConfig: Routes = [
         canLoad: [AuthGuard],
         canActivate: [AuthGuard]
     },
+    {
+        path: 'todo', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)
+    },
+
     { path: '**', component: NotFoundComponent },
 ];
 
