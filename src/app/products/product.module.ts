@@ -31,7 +31,6 @@ import { ProductAppComponent } from './product.app.component';
     providers: [
         ProductsService,
         ProductResolve
-    ],
-    exports: []
+    ]
 })
 export class ProductModule { }

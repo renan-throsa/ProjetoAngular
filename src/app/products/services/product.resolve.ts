@@ -10,7 +10,7 @@ export class ProductResolve implements Resolve<Product[]> {
     constructor(private _service: ProductsService) { }
 
     resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
-        console.log(route.params.estado)
+        console.log("Obtendo lista de produtos...")
         return this._service.getProducts(route.params.estado);
     }
 

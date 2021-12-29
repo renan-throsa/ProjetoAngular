@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nome": "mouse Microsoft",
-      "valor": 15.90,
+      "valor": 15.9,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "mouse.jpg",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "nome": "Teclado Microsoft",
-      "valor": 30.00,
+      "valor": 30,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "teclado.jpg",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "nome": "Monitor Samsung",
-      "valor": 250.00,
+      "valor": 250,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "monitor.jpg",
@@ -30,16 +30,16 @@
     {
       "id": 4,
       "nome": "Laptop Asus",
-      "valor": 3000.00,
+      "valor": 3000,
       "promocao": true,
-      "valorPromo": 999.90,
+      "valorPromo": 999.9,
       "imagem": "laptop.jpg",
       "ativo": true
     },
     {
       "id": 5,
       "nome": "Headset Microsoft",
-      "valor": 10.50,
+      "valor": 10.5,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "headset.jpg",
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "nome": "Webcam Logitech",
-      "valor": 90.00,
+      "valor": 90,
       "promocao": true,
       "valorPromo": 49.99,
       "imagem": "webcam.jpg",
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "nome": "Galaxy S10+",
-      "valor": 3000.00,
+      "valor": 3000,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "celular.jpg",
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "nome": "Mousepad Microsoft",
-      "valor": 5.50,
+      "valor": 5.5,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "mousepad.jpg",
@@ -75,7 +75,7 @@
     {
       "id": 9,
       "nome": "Go Pro 8",
-      "valor": 300.00,
+      "valor": 300,
       "promocao": false,
       "valorPromo": 0,
       "imagem": "gopro.jpg",
@@ -87,12 +87,12 @@
       "id": 1,
       "nome": "Responder e-mails",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 2,
       "nome": "Reunião com fornecedor",
-      "finalizado": true,
+      "finalizado": false,
       "iniciado": false
     },
     {
@@ -111,7 +111,7 @@
       "id": 5,
       "nome": "Levar cachorro no veterinário",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 6,
@@ -122,13 +122,13 @@
     {
       "id": 7,
       "nome": "Comprar Café",
-      "finalizado": true,
-      "iniciado": false
+      "finalizado": false,
+      "iniciado": true
     },
     {
       "id": 8,
       "nome": "Visitar desenvolvedor.io",
-      "finalizado": false,
+      "finalizado": true,
       "iniciado": false
     }
   ]

@@ -8,13 +8,21 @@ import { tap } from 'rxjs/operators';
 @Injectable()
 export class TasksService {
 
+  private readonly url = "http://localhost:3000/todolist";
   constructor(private _http: HttpClient, private _store: Store) { }
 
   getTodoList$: Observable<Assignment[]> = this._http
-    .get<Assignment[]>('http://localhost:3000/todolist')
+    .get<Assignment[]>(this.url)
     .pipe(
-      tap(next => this._store.set('todolist', next))
+      tap(list => this._store.setList(list))
     );
+
+  toogle(task: Assignment) {
+    this._http.put(`${this.url}/${task.id}`, task)
+      .subscribe(() => {
+        this._store.seItem(task);
+      });
+  }
 
   /* getToDoList(): Observable<Task[]> {
     return this.http

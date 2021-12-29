@@ -9,9 +9,9 @@
                 <div class="col-md-10">
                     <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)"
                         formControlName="nome"
-                        [ngClass]="{'is-invalid': entryForm.get('nome').errors && (entryForm.get('nome').dirty || entryForm.get('nome').touched) }" />
+                        [ngClass]="{'is-invalid': isNameValid}" />
                     <span class="text-danger"
-                        *ngIf="entryForm.get('nome')?.errors && (entryForm.get('nome').dirty || entryForm.get('nome').touched)">
+                        *ngIf="isNameValid">
                         <p>Preencha o campo Nome!</p>
                     </span>
                 </div>
@@ -22,14 +22,14 @@
                 <div class="col-md-10">
                     <input class="form-control" id="cpf" type="text" placeholder="CPF (requerido)" formControlName="cpf"
                         cpf [textMask]="{mask: MASK.cpf.textMask}"
-                        [ngClass]="{'is-invalid': entryForm.get('cpf').errors && (entryForm.get('cpf').dirty || entryForm.get('cpf').touched) }" />
+                        [ngClass]="{'is-invalid': isCpValid }" />
 
                     <span class="text-danger"
-                        *ngIf="entryForm.get('email')?.errors?.required && (entryForm.get('cpf').dirty || entryForm.get('cpf').touched)">
+                        *ngIf="entryForm.get('cpf')?.errors?.required && isCpValid">
                         <p>Preencha o campo CPF!</p>
                     </span>
                     <span class="text-danger"
-                        *ngIf="entryForm.get('email')?.errors?.cpf && (entryForm.get('cpf').dirty || entryForm.get('cpf').touched)">
+                        *ngIf="entryForm.get('cpf')?.errors?.cpf && isCpValid">
                         <p>CPF em formato inválido</p>
                     </span>
                 </div>
@@ -40,13 +40,13 @@
                 <div class="col-md-10">
                     <input class="form-control" id="email" type="text" placeholder="E-mail (requerido)"
                         formControlName="email"
-                        [ngClass]="{'is-invalid': entryForm.get('email').errors && (entryForm.get('email').dirty || entryForm.get('email').touched) }" />
+                        [ngClass]="{'is-invalid': isEmailValid }" />
                     <span class="text-danger"
-                        *ngIf="entryForm.get('email')?.errors?.required && (entryForm.get('email').dirty || entryForm.get('email').touched)">
+                        *ngIf="entryForm.get('email')?.errors?.required && isEmailValid">
                         <p>Preencha o campo email!</p>
                     </span>
                     <span class="text-danger"
-                        *ngIf="entryForm.get('email')?.errors?.email && (entryForm.get('email').dirty || entryForm.get('email').touched)">
+                        *ngIf="entryForm.get('email')?.errors?.email && isEmailValid">
                         <p>Email em formato inválido</p>
                     </span>
                 </div>
@@ -57,14 +57,14 @@
                 <div class="col-md-10">
                     <input class="form-control" id="senha" type="password" placeholder="Senha (requerido)"
                         formControlName="senha"
-                        [ngClass]="{'is-invalid': entryForm.get('senha').errors && (entryForm.get('senha').dirty || entryForm.get('senha').touched) }" />
+                        [ngClass]="{'is-invalid': isSenhaValid }" />
 
                     <span class="text-danger"
-                        *ngIf="entryForm.get('senha')?.errors?.required && (entryForm.get('email').dirty || entryForm.get('senha').touched)">
+                        *ngIf="entryForm.get('senha')?.errors?.required && isSenhaValid">
                         <p>Preencha o campo senha!</p>
                     </span>
                     <span class="text-danger"
-                        *ngIf="entryForm.get('senha')?.errors?.rangeLength && (entryForm.get('senha').dirty || entryForm.get('senha').touched)">
+                        *ngIf="entryForm.get('senha')?.errors?.rangeLength && isSenhaValid">
                         <p>Senha deve ter entre 6 e 15 caracteres</p>
                     </span>
                 </div>
@@ -93,7 +93,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
-                    <span><button class="btn btn-success" id="Registrar" [disabled]="!entryForm.valid"
+                    <span><button class="btn btn-success" id="Registrar" [disabled]="entryForm.dirty && !entryForm.valid"
                             type="submit">Registrar</button></span>
                 </div>
             </div>

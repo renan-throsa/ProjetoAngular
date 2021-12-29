@@ -13,6 +13,7 @@ import { CustomValidators } from 'ng2-validation';
 })
 export class EntryComponent implements OnInit {
 
+  isDirty: boolean;
   entryForm: FormGroup;
   usuario: Usuario;
   MASK = utilsBr.MASKS;
@@ -20,6 +21,26 @@ export class EntryComponent implements OnInit {
   constructor(private _fb: FormBuilder) {
   }
 
+  get isNameValid(): boolean {
+    return this.hasErros('nome');
+  }
+
+  get isCpValid(): boolean {
+    return this.hasErros('cpf');
+  }
+
+  get isEmailValid(): boolean {
+    return this.hasErros('email');
+  }
+
+  get isSenhaValid(): boolean {
+    return this.hasErros('senha');
+  }
+
+  hasErros(field: string): boolean {
+    return this.entryForm.get(field)?.errors
+      && (this.entryForm.get(field).dirty || this.entryForm.get(field).touched)
+  }
   ngOnInit(): void {
     let senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15])])
     let senhaConfirmacao = new FormControl('',
@@ -37,6 +58,9 @@ export class EntryComponent implements OnInit {
   }
 
   addUser() {
-    this.usuario = Object.assign({}, this.usuario, this.entryForm.value)
+    if (this.entryForm.dirty && this.entryForm.valid) {
+      this.usuario = Object.assign({}, this.usuario, this.entryForm.value)
+      this.isDirty = false;
+    }
   }
 }

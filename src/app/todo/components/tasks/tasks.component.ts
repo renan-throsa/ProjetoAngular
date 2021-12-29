@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { TasksService } from '../../todo.service';
 import { Store } from '../../todo.store';
+import { Assignment } from '../Assignment';
 
 
 @Component({
@@ -11,10 +12,12 @@ import { Store } from '../../todo.store';
 })
 export class TasksComponent implements OnInit, OnDestroy {
 
-  todolist$: Observable<any[]>
+  todolist$: Observable<Assignment[]>;
   subscription: Subscription;
 
-  constructor(private taskService: TasksService, private _store: Store) { }
+  constructor(private taskService: TasksService, private _store: Store) {
+    this.subscription = this.taskService.getTodoList$.subscribe();
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
@@ -22,10 +25,13 @@ export class TasksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.todolist$ = this._store.getToDoList().pipe(
-      map(todolist => todolist.filter(a => !a.iniciado && !a.finalizado))
+      map(todolist => todolist?.filter(a => !a.iniciado && !a.finalizado))
     )
-
     this.subscription = this.taskService.getTodoList$.subscribe();
+  }
+
+  onToggle(event) {
+    this.taskService.toogle(event);
   }
 
 }
